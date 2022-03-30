@@ -6,8 +6,17 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { pickBy } from "lodash-es";
 import { twMerge } from "tailwind-merge";
+
+function pickBy(object: { [key: string]: any }) {
+  const obj: { [key: string]: any } = {};
+  for (const key in object) {
+    if (object[key]) {
+      obj[key] = object[key];
+    }
+  }
+  return obj;
+}
 
 const classesToString = (classes: string | string[]) => {
   if (typeof classes === "string") {
